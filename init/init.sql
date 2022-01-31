@@ -15,16 +15,16 @@ LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/csv/users.csv'  INTO TABLE u
 -- 
 DROP TABLE IF EXISTS `order_data`;
 CREATE TABLE `order_data` (
-  `order_id` char(10) NOT NULL,
-  `user_id` char(10) NOT NULL DEFAULT '',
-  `order_product_id` char(10) NOT NULL DEFAULT '',
-  `order_date` int NOT NULL,
-  `is_discounted` int NOT NULL,
-  `is_canceled` int NOT NULL,
+  `order_id` char(20) ,
+  `user_id` char(10),
+  `order_product_id` char(10),
+  `order_date` int,
+  `is_discounted` int,
+  `is_canceled` int,
   PRIMARY KEY (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/csv/order_data.csv'  INTO TABLE users FIELDS TERMINATED BY ',' ESCAPED BY '"';
+LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/csv/order_data.csv'  INTO TABLE order_data FIELDS TERMINATED BY ',' ESCAPED BY '"';
 
 -- 
 DROP TABLE IF EXISTS `products`;
@@ -38,4 +38,4 @@ CREATE TABLE `products` (
   PRIMARY KEY (`product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/csv/products.csv'  INTO TABLE users FIELDS TERMINATED BY ',' ESCAPED BY '"';
+LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/csv/products.csv'  INTO TABLE products FIELDS TERMINATED BY ',' ESCAPED BY '"';

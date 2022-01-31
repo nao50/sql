@@ -7,8 +7,8 @@ sql practice
 https://zenn.dev/jojojo/articles/f1223bb06cf5be
 
 ```sh
-$ docker build -t docker-mysql-8 .
-$ docker run -d -v $PWD/db:/var/lib/mysql -p 13306:3306 docker-mysql-8
+$ docker build -t docker-mysql-8:1 .
+$ docker run -d -v $PWD/db:/var/lib/mysql -p 13306:3306 docker-mysql-8:1
 $ docker exec -it docker-mysql-8 bash
 
 $ mysql -u testuser --local-infile=1 -p
